@@ -1,0 +1,22 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /kafka
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      group-id: app.1
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  datasource:
+    initialize: false
+    url: jdbc:postgresql://localhost:5438/hoteldb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
